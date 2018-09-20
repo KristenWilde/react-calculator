@@ -1,0 +1,43 @@
+html {
+  font: 24px Arial, Helvetica, sans-serif;
+}
+
+#calculator {
+  width: 12rem;
+  margin: 80px auto;
+  background-color: lightskyblue;
+  border: 1px solid #444;
+  border-radius: 9px;
+  padding: 1.3rem 1rem;
+  box-sizing: border-box;
+
+}
+
+#screen {
+  width: 100%;
+  height: 3rem;
+  line-height: 3rem;
+  padding: 0 .6rem;
+  margin-bottom: .5rem;
+  background-color: #444;
+  text-align: right;
+  color: tan;
+  font-size: 1.3rem;
+  box-sizing: border-box;
+}
+
+#buttons-wrapper {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 5px;
+}
+
+button {
+  font-size: .9rem;
+  height: 2rem;
+  line-height: 2rem;
+  border: 1px solid #444;
+  border-radius: 5px;
+
+}
