@@ -96,8 +96,8 @@ function CalculatorUI(props) {
     <div id="calculator">
       <div id="screen">{props.screenValue}</div>
       <ButtonGroup 
-        handleOperatorClick={props.handleOperatorClick}
-        handleNumberClick={props.handleNumberClick}
+        operator={props.handleOperatorClick}
+        input={props.handleNumberClick}
         reset={props.reset}
         submit={props.submit}
         percent={props.percent}
@@ -108,31 +108,43 @@ function CalculatorUI(props) {
 }
 
 function ButtonGroup(props) {
+  const myButtons=[
+    {action: props.reset,      display: 'AC' },
+    {action: props.changeSign, display: '+/-'},
+    {action: props.percent,    display: '%'  },
+    {action: props.operator,   display: '/'},
+    {action: props.input,      display: '7'},
+    {action: props.input,      display: '8'},
+    {action: props.input,      display: '9'},
+    {action: props.operator,   display: '*'},
+    {action: props.input,      display: '4'},
+    {action: props.input,      display: '5'},
+    {action: props.input,      display: '6'},
+    {action: props.operator,   display: '-'},
+    {action: props.input,      display: '1'},
+    {action: props.input,      display: '2'},
+    {action: props.input,      display: '3'},
+    {action: props.operator,   display: '+'},
+    {action: props.operator,   display: '0'},
+    {action: props.input,      display: '.'},
+    {action: props.submit,     display: '='}
+  ]
+
   return (
     <div id="buttons-wrapper">
-      <button onClick={props.reset}>AC</button>
-      <button onClick={props.changeSign}>+/-</button>
-      <button onClick={props.percent}>%</button>
-      <button onClick={() => props.handleOperatorClick('/')}>/</button>
-
-      <button onClick={() => props.handleNumberClick('7')}>7</button>
-      <button onClick={() => props.handleNumberClick('8')}>8</button>
-      <button onClick={() => props.handleNumberClick('9')}>9</button>
-      <button onClick={() => props.handleOperatorClick('*')}>*</button>
-
-      <button onClick={() => props.handleNumberClick('4')}>4</button>
-      <button onClick={() => props.handleNumberClick('5')}>5</button>
-      <button onClick={() => props.handleNumberClick('6')}>6</button>
-      <button onClick={() => props.handleOperatorClick('-')}>-</button>
-
-      <button onClick={() => props.handleNumberClick('1')}>1</button>
-      <button onClick={() => props.handleNumberClick('2')}>2</button>
-      <button onClick={() => props.handleNumberClick('3')}>3</button>
-      <button onClick={() => props.handleOperatorClick('+')}>+</button>
-
-      <button onClick={() => props.handleNumberClick('0')}>0</button>
-      <button onClick={() => props.handleNumberClick('.')}>.</button>
-      <button onClick={() => props.submit()}>=</button>
+      {myButtons.map(btn => (
+        <Button display={btn.display}>
+          {btn.action}
+        </Button>
+      ))}
     </div>
+  )
+}
+
+function Button(props) {
+  return (
+    <button onClick={() => props.children(props.display)}>
+      {props.display}
+    </button>
   )
 }
