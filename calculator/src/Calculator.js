@@ -76,7 +76,7 @@ export default class Calculator extends Component {
         answer = num1 / num2
         break
     }
-    this.setState({ num1: String(answer), num2: '', operator: null })
+    this.setState({ num1: String(answer), num2: '' })
   }
 
   render() {

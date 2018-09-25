@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Screen(props) {
+export default function Screen({ output }) {
   function roundForScreen(numString) {
     const MAXLENGTH = 12
 
@@ -15,5 +15,5 @@ export default function Screen(props) {
     return Number(numString).toFixed(decimalPartLength)
   }
 
-  return <div id="screen">{roundForScreen(props.output) || 0}</div> 
+  return <div id="screen">{roundForScreen(output) || 0}</div> 
 }
